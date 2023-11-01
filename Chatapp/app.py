@@ -67,7 +67,7 @@ def userLogin():
           flash('このユーザは存在しません')
       else:
           hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
-          if hashPassword != user["password"]
+          if hashPassword != user["password"]:
               flash('パスワードが間違っています')
           else:
               session['uid'] = user ["uid"]
