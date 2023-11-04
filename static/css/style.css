@@ -25,7 +25,7 @@ img:last-of-type {
   font-size: 80px;
   font-family: "Princess Sofia", cursive;
   text-align: center;
-  color: var(--grey);
+  color: var(--gray);
 }
 main {
   margin: 0 150px 30px;
