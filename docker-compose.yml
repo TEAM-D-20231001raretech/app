@@ -4,26 +4,22 @@ version: "3.9"
 # db(MySQL),app(Flask)のコンテナを作成
 services:
   db:
-    # コンテナ名をmysqlに設定
-    container_name: MySQL
     # MySQLのDockerfileをビルドする
     build:
       # ビルドコンテキストはカレントディレクトリ
-      context: .
-      dockerfile: Docker/MySQL/Dockerfile
+      context: ./MySQL/
+    # コンテナ名をmysqlに設定
+    container_name: MySQL
     # M1チップでも動くように
     # Intel Macの場合あってもなくても動く
     platform: linux/x86_64
     # DBのボリュームを指定
     # ローカルの/data/dbをコンテナの/var/lib/mysqlにマウントする
-    volumes:
-      - mysql_data:/var/lib/mysql
+    # volumes:
+    #   - mysql_data:/var/lib/mysql
     # コンテナ内の環境変数を設定
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=chatapp
-      - MYSQL_USER=testuser
-      - MYSQL_PASSWORD=testuser
+    env_file:
+      - .env
     # DBのコンテナのヘルスチェックを行う
     # mysqladmin(MySQLサーバーの管理を行うクライアントを使ってDBコンテナ自身(127.0.0.1)にpingを送ってヘルスチェックを行う
     healthcheck:
@@ -38,27 +34,54 @@ services:
       start_period: 30s
 
   app:
-    # コンテナ名をFlaskに設定
-    container_name: Flask
     # FlaskのDockerfileをビルドする
     build:
       # ビルドコンテキストはカレントディレクトリ
-      context: .
-      dockerfile: Docker/Flask/Dockerfile
+      context: ./ChatApp/
+    # コンテナ名をFlaskに設定
+    container_name: Flask
     # ボリュームを指定
     # ローカルのカレントディレクトリをコンテナの/codeにマウントする
     volumes:
-      - ./ChatApp:/code
+      - tmp-data:/app/tmp
+      - ./ChatApp:/app
+      - ./Nginx/static:/app/static
     # ローカルの5000番ポートとコンテナの5000番ポートをつなぐ
-    ports:
-      - "5000:5000"
+    # ports:
+    #   - "5000:5000"
     # コマンドを実行
-    command:  bash -c "python app.py"
+    # command:  bash -c "python app.py"
     # 先にdbを起動してからappを起動する
     depends_on:
       db:
         # dbのヘルスチェックが終わってからappを起動させる
         condition: service_healthy
+  
+  web:
+    container_name: Nginx
+    # FlaskのDockerfileをビルドする
+    build:
+      # ビルドコンテキストはカレントディレクトリ
+      context: ./Nginx/
+    volumes:
+      - tmp-data:/app/tmp
+      - ./Nginx/static:/app/static
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    # コンテナ内の環境変数を.envを使って設定
+    env_file:
+      - .env
+    links:
+      - db
+    ports:
+      - 4000:80
+    volumes:
+      - ./phpmyadmin/sessions:/sessions
 
 volumes:
-  mysql_data:
+  tmp-data:
