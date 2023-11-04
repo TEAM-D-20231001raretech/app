@@ -1,0 +1,109 @@
+@import "./color.css";
+
+/* その他のスタイル定義 */
+
+body {
+  font-family: meiryo;
+  background-color: var(--lavender);
+  position: relative;
+}
+img:first-of-type,
+img:last-of-type {
+  position: absolute;
+  width: 150px;
+  height: auto;
+}
+img:first-of-type {
+  top: 0;
+  right: 0;
+}
+img:last-of-type {
+  bottom: 0;
+  left: 0;
+}
+.logo {
+  font-size: 80px;
+  font-family: "Princess Sofia", cursive;
+  text-align: center;
+  color: var(--grey);
+}
+main {
+  margin: 0 150px 30px;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: var(--pale);
+}
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 7px;
+  font-size: 24px;
+}
+input {
+  background: var(--pale);
+  width: 65%;
+  color: var(--pink);
+  border: none;
+  border-bottom: 1px solid var(--white);
+  padding: 9px;
+  margin: 7px;
+  &::placeholder {
+    color: var(--white);
+    letter-spacing: 2px;
+    font-size: 1.3em;
+    font-weight: 100;
+  }
+  &:focus {
+    color: var(--pink);
+    outline: none;
+    border-bottom: 1.2px solid var(--pink);
+    font-size: 1em;
+    transition: 0.8s all ease;
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}
+.button-submit {
+  width: 300px;
+  padding: 12px;
+  font-family: meiryo;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 24px;
+  border-radius: 12px;
+  margin: auto;
+  outline: none;
+  display: block;
+  background: var(--white);
+  color: var(--pink);
+  border: solid 4px var(--pink);
+  &:hover {
+    background: var(--lavender);
+    color: var(--white);
+    border: solid 4px var(--lavender);
+    transition: background-color 1s ease-out;
+  }
+}
+p {
+  margin-top: 0;
+  text-align: center;
+  color: var(--white);
+}
+a:link {
+  color: var(--white);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--white);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
+a:active {
+  color: var(--pink);
+  text-decoration: underline;
+}
