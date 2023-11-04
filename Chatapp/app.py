@@ -1,5 +1,5 @@
 from flask import Flask,request, redirect, render_templete, session, flash, abort, url_for
-from datetime, import timedelta
+from datetime import timedelta
 import os
 import hashlib
 import uuid
@@ -62,17 +62,17 @@ def userLogin():
     if email =='' or password =='':
         flash ('空のフォームがあるようです')
     else:
-      user = dbConnect.getUser(email)
-      if user is None:
-          flash('このユーザは存在しません')
-      else:
-          hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
-          if hashPassword != user["password"]:
-              flash('パスワードが間違っています')
-          else:
-              session['uid'] = user ["uid"]
-              return redirect('/')
-      return redirect('login')
+        user = dbConnect.getUser(email)
+        if user is None:
+            flash('このユーザは存在しません')
+        else:
+            hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
+            if hashPassword != user["password"]:
+                flash('パスワードが間違っています')
+            else:
+                session['uid'] = user ["uid"]
+                return redirect('/')
+        return redirect('login')
 
 
 #ログアウト
@@ -180,5 +180,3 @@ def show_error404(error):
 def show_error500(error):
     return render_template('error/500.html'),500
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=False)
