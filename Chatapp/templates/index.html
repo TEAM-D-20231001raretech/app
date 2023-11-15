@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雑談部屋</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            text-align: center; /* 中央揃え */
+            background-color: #eac7cc;
+            }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            background-color: #cbc0d3;
+            }
+
+        .logo {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            height: 80px;
+            }
+
+        .title {
+            margin: 0;
+            }
+
+        #channelList {
+            margin-top: 20px; /* ヘッダーの下にスペースを作る */
+            }
+
+        button {
+            margin-top: 20px;
+            }
+
+        /* ... その他のスタイル ... */
+
+        .input-group {
+            margin-top: 20px;
+            }
+
+        .input-group input {
+            margin-right: 10px;
+            }
+
+        /* 新しいチャンネル項目のスタイル */
+        .channel-item {
+            margin-top: 10px;
+            position: relative; /* 削除ボタンの絶対位置指定のために必要 */
+            }
+
+        /* 削除ボタンのスタイル */
+        .delete-btn {
+            position: absolute;
+            right: 10px;
+            }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="../static/img/Petalk.png" alt="Logo" class="logo">
+        <h1 class="title">雑談部屋</h1>
+    </header>
+
+    <div class="input-group">
+        <input type="text" id="channelName" placeholder="チャンネル名を入力">
+        <button onclick="addChannel()">新規作成</button>
+    </div>
+
+    <main id="channelList">
+        <!-- チャンネル項目がここに動的に挿入されます -->
+    </main>
+
+    <button onclick="addChannel()">新規作成</button>
+
+    <script src="../static/js/addchannel.js"></script>
+
+
+
+</body>

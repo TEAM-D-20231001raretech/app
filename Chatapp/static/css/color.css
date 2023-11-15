@@ -1,0 +1,9 @@
+/* 色を使い回しできるように変数にする */
+
+:root {
+  --gray: #8e9aaf;
+  --lavender: #cbc0d3;
+  --pale: #eac7cc;
+  --white: #f6f6f6;
+  --pink: #ce7d88;
+}
