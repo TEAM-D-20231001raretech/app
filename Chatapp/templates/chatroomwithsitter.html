@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap"
+      rel="stylesheet"
+    />
+    <title>経過報告</title>
+    <link rel="stylesheet" href="static/css/chatroom.css" />
+  </head>
+
+  <body>
+    <p>経過報告　〇月〇日</p>
+    <div class="main-container">
+      <div class="sitter-name">港区ペットシッター：山田</div>
+      <div class="sitter-message">今日の猫ちゃんのお世話の報告です</div>
+      <div class="sitter-time">何時何分</div>
+      <div class="myname">ユーザー名</div>
+      <div class="my-message">ありがとうございます。元気そうで良かったです</div>
+      <div class="my-time">何時何分</div>
+      <button
+        class="delete-message-button">
+        <img src="static/img/icon_trash.svg" alt="ゴミ箱">
+      </button>
+    </div>
+    <div class="typing-box-wrapper">
+      <form
+        class="typing-box">
+        <button type="add-photo" id="add-photo-button">
+          画像追加
+        </button>
+        <textarea name="message" id="message" autofocus></textarea>
+        <button type="submit" id="add-message-button">
+          <img src="static/img/icon_send.svg" alt="送信">
+        </button>
+      </form>
+  </body>
+</html>

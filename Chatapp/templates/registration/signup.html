@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block title %}
+<title>Petalk</title>
+{% endblock %} {% block body %}
+<h1 class="logo">Petalk</h1>
+<img src="{{ url_for('static',filename='img/Paws.png') }}" alt="" />
+
+<main>
+  <form class="registration-form signup" method="post">
+    <div>
+      <label for="signup-name-input">Name</label>
+      <input
+        type="text"
+        placeholder="お名前"
+        name="name"
+        id="signup-name-input"
+      /><br />
+    </div>
+    <div>
+      <label for="signup-email-input">Email</label>
+      <input
+        type="email"
+        placeholder="メールアドレス"
+        name="email"
+        id="signp-email-input"
+      /><br />
+    </div>
+    <div>
+      <label for="signup-password-input">Password</label>
+      <input
+        type="password"
+        placeholder="パスワード"
+        name="password1"
+        id="signup-password-input"
+      /><br />
+    </div>
+    <div>
+      <label for="signup-password-confirmation-input"
+        >Password Confirmation</label
+      >
+      <input
+        type="password"
+        placeholder="確認用パスワード"
+        name="password2"
+        id="signup-password-confirmation-input"
+      /><br />
+    </div>
+  </form>
+  <div class="registration-button-container">
+    <!-- ここでmessagesという変数を使う -->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <button class="button-submit">新規登録</button><br />
+    <p><a href="{{ url_for('login') }}">ログインはこちらから</a></p>
+  </div>
+</main>
+<img src="{{ url_for('static',filename='img/Paws.png') }}" alt="" />
+{% endblock body %}
