@@ -1,0 +1,84 @@
+@import "color.css";
+
+body {
+  font-family: meiryo;
+  background-color: var(--pale);
+  color: var(--gray);
+  position: relative;
+  margin: 0;
+}
+p {
+  text-align: right;
+}
+.friend-message {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #d9d9d9;
+  color: black;
+}
+
+.friend-message:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #d9d9d9;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.delete-message-button {
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  width: 40px;
+  line-height: 47px;
+  padding: 0;
+  margin: 0;
+  bottom: 8px;
+  right: 8px;
+}
+
+.typing-box {
+  border-radius: 16px;
+  background-color: var(--white);
+  margin: 30px;
+}
+/*
+#add-message-button,
+.typing-box-wrapper {
+  position: absolute;
+  top: 23.5px;
+  left: 1351.2px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+*/
+#add-message-button {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+}
+.typing-box-wrapper {
+  display: flex;
+  background-color: #d9d9d9;
+  /*
+  margin: 0;
+  top: 741.5px;
+  left: 0
+  width: 100vw;
+  height: 124.5px;
+  transform: rotate(-0.04deg);
+  transform-origin: 0 0;
+  */
+}

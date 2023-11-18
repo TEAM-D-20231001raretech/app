@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap"
+      rel="stylesheet"
+    />
+    <title>雑談部屋</title>
+    <link rel="stylesheet" href="../static/css/detail.css" />
+  </head>
+
+  <form>
+    <div class="detail">
+      <p class="div">{{ channel.name }}</p>
+      <div class="friend-name">チワワLOVE</div>
+      <div class="friend-message">今日はおめかししました！</div>
+      <div class="friend-image"><img src="../static/img/chatphoto.png"></div>
+      <div class="time">何時何分</div>
+      <form action="/delete_message" method="POST">
+        <input type="hidden" value="{{ channel.id }}" name="cid" />
+        <button
+          class="delete-message-button"
+          name="message_id"
+          value="{{ message.id }}"
+        >
+          <img src="../static/img/icon_trash.svg" alt="ゴミ箱">
+        </button>
+      </form>
+      
+    </div>
+    <div class="messages">
+      <p class="user-name">{{ message.user_name }}</p>
+      <p class="box box-left">{{ message.message }}</p>
+    </div>
+    <div class="typing-box-wrapper">
+        <form
+          class="typing-box"
+          action="/message"
+          method="POST"
+          name="newMessageForm">
+          <button type="add-photo" id="add-photo-button">
+            画像追加
+          </button>
+          <textarea name="message" id="message" autofocus></textarea>
+          <button type="submit" id="add-message-button">
+            <img src="../static/img/icon_send.svg" alt="送信">
+          </button>
+        </form>
+    </body>
+  </body>
+</html>
