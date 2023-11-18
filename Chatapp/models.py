@@ -56,7 +56,7 @@ class dbConnect:
             print(e + 'が発生しています')
             abort(500)
         finally:
-          cur.close()
+            cur.close()
 
     def getChannelByName(channel_name):
         try:
