@@ -3,15 +3,16 @@ from util.DB import DB
 
 
 class dbConnect:
-    def createUser(uid, name, email, password):
+    def createUser(uid, name, email, password, user_type):
         try:
             conn = DB.getConnection()
             cur = conn.cursor()
-            sql = "INSERT INTO users (uid, user_name, email, password) VALUES (%s, %s, %s, %s);"
-            cur.execute(sql, (uid, name, email, password))
+            # SQLクエリに user_type カラムを追加
+            sql = "INSERT INTO users (uid, user_name, email, password, user_type) VALUES (%s, %s, %s, %s, %s);"
+            cur.execute(sql, (uid, name, email, password, user_type))
             conn.commit()
         except Exception as e:
-            print(e + 'が発生しています')
+            print(str(e) + 'が発生しています')
             abort(500)
         finally:
             cur.close()
@@ -137,5 +138,3 @@ class dbConnect:
             abort(500)
         finally:
             cur.close()
-
-
