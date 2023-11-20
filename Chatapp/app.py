@@ -199,6 +199,3 @@ def show_error404(error):
 @app.errorhandler(500)
 def show_error500(error):
     return render_template('error/500.html'),500
-
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=False)
