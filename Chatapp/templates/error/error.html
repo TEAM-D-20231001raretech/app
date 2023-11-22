@@ -1,0 +1,10 @@
+{% extends "error/base.html" %} {% block title %} error {% endblock %} {% block body %}
+<body>
+    <div class="error-title"><span>SORRY</span></div>
+        <div class="error-description">
+            <p>{{ error_message }}</p>
+        <button class="error-button pink">
+            <a href="{{ url_for('menu') }}">戻る</a>
+        </button>
+    </div>
+</body>

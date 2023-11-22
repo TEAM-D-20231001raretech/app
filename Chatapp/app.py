@@ -1,19 +1,15 @@
-from flask import Flask, request, redirect, render_template, session, flash, abort, url_for,send_from_directory
+from flask import Flask, request, redirect, render_template, session, flash, abort
 from datetime import timedelta
 import hashlib
 import uuid
 import re
-from werkzeug.utils import secure_filename
-import os, glob
-from models import dbConnect
 
-UPLOAD_FOLDER = '/path/to/the/uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
+from models import dbConnect
 
 app = Flask(__name__)
 app.secret_key = uuid.uuid4().hex
 app.permanent_session_lifetime = timedelta(days=30)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 # サインアップページの表示
 @app.route('/signup')
@@ -28,6 +24,7 @@ def userSignup():
     email = request.form.get('email')
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
+
 
     pattern = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
@@ -103,8 +100,7 @@ def index():
 @app.route('/', methods=['POST'])
 def add_channel():
     uid = session.get('uid')
-    user_type = session.get('user_type')
-    if uid is None or user_type != 'admin':
+    if uid is None:
         return redirect('/login')
     channel_name = request.form.get('channelTitle')
     channel = dbConnect.getChannelByName(channel_name)
@@ -159,7 +155,6 @@ def detail(cid):
     cid = cid
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
-    images = dbConnect.getImageAll(cid)
 
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
@@ -194,38 +189,6 @@ def delete_message():
         dbConnect.deleteMessage(message_id)
 
     return redirect('/detail/{cid}'.format(cid = cid))
-
-# 画像をアップロード
-def allowed_file(filename):
-    return '.' in filename and \
-        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-@app.route('/', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('download_file', name=filename))
-    return
-
-@app.route('/uploads/<name>')
-def download_file(name):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
-
-app.add_url_rule(
-    "/uploads/<name>", endpoint="download_file", build_only=True
-)
 
 
 @app.errorhandler(404)
