@@ -155,6 +155,7 @@ def detail(cid):
     cid = cid
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
+    print(messages, channel)
 
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
@@ -199,3 +200,4 @@ def show_error404(error):
 @app.errorhandler(500)
 def show_error500(error):
     return render_template('error/500.html'),500
+
