@@ -16,23 +16,28 @@
         </button>
     </header>
 
-    <div class="input-group">
-        <form id="channel-form" method="POST" action="/">
-            <label for="channelName" class="form-label">チャンネル名</label>
-            <input type="text" name="channelTitle" id="channelName" placeholder="チャンネル名を入力">
-            <input type="text" name="channelDescription" id="channelDescription" placeholder="チャンネルの説明を入力">
-            <button type="submit">新規作成</button>
-        </form>
-    </div>
-
-
-    <main id="channelList">
-        <!-- チャンネル項目がここに動的に挿入されます -->
-        {% for channel in channels %}
-        <a href="/detail/{{ channel.id }}">{{ channel.name }}</a>
-        {% endfor %}
+    <main>
+        <div class="input-group">
+            <form id="channel-form" method="POST" action="/">
+                <label for="channelName" class="form-label">チャンネル名</label>
+                <input type="text" name="channelTitle" id="channelName" placeholder="チャンネル名を入力">
+                <input type="text" name="channelDescription" id="channelDescription" placeholder="チャンネルの説明を入力">
+                <button type="submit">新規作成</button>
+            </form>
         </div>
 
+
+        <div class="channelList">
+            <div class="channelname">
+                チャンネル一覧
+            </div>
+            {% for channel in channels %}
+            <div class="channeltitle">
+                <img src="../static/img/icon_pows.svg" alt="Logo" class="paws">
+                <a href="/detail/{{ channel.id }}">{{ channel.name }}</a>
+            </div>
+            {% endfor %}
+        </div>
     </main>
 
 </body>
