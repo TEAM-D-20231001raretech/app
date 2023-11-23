@@ -21,6 +21,7 @@
       {% if messages|length > 0 %} {% for message in messages %}
       <p>{{message.uid}}</p>
       {% if message.uid == uid %}
+
       <div class="my-messages">
         <form action="/delete_message" method="POST">
           <input type="hidden" value="{{ channel.id }}" name="cid" />
