@@ -53,11 +53,13 @@ def userSignup():
 def login():
     return render_template('registration/login.html')
 
+
 # ログイン処理
 @app.route('/login', methods=['POST'])
 def userLogin():
     email = request.form.get('email')
     password = request.form.get('password')
+
     if email =='' or password == '':
         flash('空のフォームがあるようです')
     else:

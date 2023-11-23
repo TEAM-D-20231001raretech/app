@@ -30,6 +30,8 @@ header {
 
 #channelList {
   margin-top: 20px; /* ヘッダーの下にスペースを作る */
+  list-style-type: none;
+  color: var(--gray);
 }
 
 button {
