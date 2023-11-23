@@ -1,7 +1,6 @@
-/*registrationのcss*/
+@import "./color.css";
 
-@import "color.css";
-
+/* その他のスタイル定義 */
 
 body {
   font-family: meiryo;
@@ -41,7 +40,6 @@ form {
   padding-top: 7px;
   font-size: 24px;
 }
-
 input {
   background: var(--pale);
   width: 65%;
@@ -108,12 +106,4 @@ a:hover {
 a:active {
   color: var(--pink);
   text-decoration: underline;
-}
-label {
-  font-family: "Princess Sofia";
-  font-size: 1.3em;
-  color: var(--gray);
-}
-.flashes {
-  color: var(--gray);
 }

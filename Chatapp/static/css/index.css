@@ -17,6 +17,7 @@ header {
   background-color: #cbc0d3;
 }
 
+
 .logo {
   position: absolute;
   left: 10px;
@@ -45,6 +46,7 @@ button {
 .input-group input {
   margin-right: 10px;
 }
+
 
 /* 新しいチャンネル項目のスタイル */
 .channel-item {

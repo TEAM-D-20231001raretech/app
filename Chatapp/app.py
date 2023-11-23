@@ -25,7 +25,6 @@ def userSignup():
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
 
-
     pattern = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
     if name == '' or email =='' or password1 == '' or password2 == '':
@@ -60,7 +59,7 @@ def login():
 def userLogin():
     email = request.form.get('email')
     password = request.form.get('password')
-
+    
     if email =='' or password == '':
         flash('空のフォームがあるようです')
     else:
@@ -101,6 +100,7 @@ def index():
 def add_channel():
     uid = session.get('uid')
     if uid is None:
+
         return redirect('/login')
     channel_name = request.form.get('channelTitle')
     channel = dbConnect.getChannelByName(channel_name)
@@ -155,6 +155,7 @@ def detail(cid):
     cid = cid
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
+    
 
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
