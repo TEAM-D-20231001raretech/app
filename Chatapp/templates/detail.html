@@ -21,6 +21,7 @@
       {% if messages|length > 0 %} {% for message in messages %}
       <p>{{message.uid}}</p>
       {% if message.uid == uid %}
+
       <div class="my-messages">
         <form action="/delete_message" method="POST">
           <input type="hidden" value="{{ channel.id }}" name="cid" />
@@ -39,6 +40,7 @@
         <p class="user-name">{{ message.user_name }}</p>
         <p class="my-message">{{ message.message }}</p>
 
+                   
         {% else %}
         <div class="friend-name">{{ message.user_name }}</div>
         <div class="friend-message">{{ message.message }}</div>

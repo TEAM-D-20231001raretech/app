@@ -25,7 +25,6 @@ def userSignup():
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
 
-
     pattern = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
 
     if name == '' or email =='' or password1 == '' or password2 == '':
@@ -101,6 +100,7 @@ def index():
 def add_channel():
     uid = session.get('uid')
     if uid is None:
+
         return redirect('/login')
     channel_name = request.form.get('channelTitle')
     channel = dbConnect.getChannelByName(channel_name)
@@ -196,8 +196,6 @@ def delete_message():
 def show_error404(error):
     return render_template('error/404.html'),404
 
-
 @app.errorhandler(500)
 def show_error500(error):
     return render_template('error/500.html'),500
-
