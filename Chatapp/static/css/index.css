@@ -1,33 +1,62 @@
 /* styles.css */
-body {
+body, html {
   margin: 0;
-  height: 100vh;
+  padding: 0;
+  height: 100%;
+  text-align: center; /* 中央揃え */
+  background-color: #eac7cc;
+  }
+
+header {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.menu-container {
-  display: flax;
-  flex-wrap: wrap;
-  width: 300px;
-  border: 1px solid #ce7d88;
-  background-color: #fff;
-}
-
-.menu-item {
-  flex: 0 0 50%;
   height: 100px;
-  justify-content: center;
+  background-color: #cbc0d3;
+  }
+
+.logo {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 80px;
+  }
+
+.title {
+  margin: 0;
+  }
+
+#channelList {
+  margin-top: 20px; /* ヘッダーの下にスペースを作る */
+  }
+
+button {
+  margin-top: 20px;
+  }
+
+/* ... その他のスタイル ... */
+
+.input-group {
+  margin-top: 20px;
+  }
+
+.input-group input {
+  margin-right: 10px;
+  }
+
+/* 新しいチャンネル項目のスタイル */
+.channel-item {
+  display: flex;
   align-items: center;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-}
-.menu-item.image {
-  flex: 0 0 100%;
+  padding: 5px;
+  }
+
+.channel-icon {
+    margin-right: 10px;
+    /* 他に必要なスタイルがあればここに追加 */
 }
 
-.menu-item img{
-  max-width: 100%;
-  max-height: 100%;
-}
+/* 削除ボタンのスタイル */
+.delete-btn {
+  margin-left: auto; /* ボタンを右端に配置 */
+  }
