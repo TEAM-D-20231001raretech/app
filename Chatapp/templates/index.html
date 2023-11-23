@@ -24,7 +24,10 @@
 
     <main id="channelList">
         <!-- チャンネル項目がここに動的に挿入されます -->
-        <!-- <h1 class="title">{{ channel_title }}</h1> -->
+        {% for channel in channels %}
+            <a href="detail.html">{{ channel.name }}</a>
+        {% endfor %}
+
         </div>
 
     </main>
