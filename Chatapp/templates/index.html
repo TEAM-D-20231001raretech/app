@@ -19,7 +19,8 @@
     <div class="input-group">
         <form id="channel-form" method="POST" action="/">
             <label for="channelName" class="form-label">チャンネル名</label>
-            <input type="text" id="channelName" placeholder="チャンネル名を入力" name="channelTitle">
+            <input type="text" name="channelTitle" id="channelName" placeholder="チャンネル名を入力">
+            <input type="text" name="channelDescription" id="channelDescription" placeholder="チャンネルの説明を入力">
             <button type="submit">新規作成</button>
         </form>
     </div>
@@ -30,12 +31,8 @@
         {% for channel in channels %}
         <a href="/detail/{{ channel.id }}">{{ channel.name }}</a>
         {% endfor %}
-        <!-- <h1 class="title">{{ channel_title }}</h1> -->
         </div>
 
     </main>
-
-
-    <script src="../static/js/addchannel.js"></script>
 
 </body>
