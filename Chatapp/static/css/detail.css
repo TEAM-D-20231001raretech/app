@@ -1,0 +1,136 @@
+@import "color.css";
+
+body {
+  font-family: meiryo;
+  background-color: var(--pale);
+  color: var(--gray);
+  position: relative;
+  margin: 0;
+}
+.div {
+  text-align: right;
+}
+.friend-message {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #d9d9d9;
+  color: black;
+}
+.friend-message:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #d9d9d9;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.delete-message-button {
+  background-color: transparent;
+  border: none;
+  height: 30px;
+  width: 30px;
+  line-height: 47px;
+  padding: 0;
+  margin: 0;
+  bottom: 8px;
+  right: 8px;
+  margin-left: auto;
+  display: block;
+}
+.trash-icon {
+  width: 30px;
+  height: 30px;
+}
+.user-name {
+  text-align: right;
+}
+.my-message {
+  display: block;
+  position: relative;
+  margin: 0 auto; /* 上下のマージンを0にし、左右のマージンをautoに設定 */
+  padding: 10px;
+  max-width: calc(100% - 100px); /* 左右の余白合わせて100px引く */
+  border-radius: 12px;
+  background: #d9d9d9;
+  color: black;
+  text-align: left;
+  word-wrap: break-word; /* 長い単語でも折り返す */
+}
+.my-message:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: -19px; /* 向きを右側にする */
+  border: 8px solid transparent;
+  border-left: 18px solid #d9d9d9; /* 吹き出しの背景色と同じ色にする */
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+.my-message-timestamp {
+  display: block;
+  font-size: 0.8em;
+  color: var(--gray);
+  text-align: right;
+}
+@media screen and (max-width: 600px) {
+  .my-message {
+    max-width: calc(
+      100% - 100px
+    ); /* 画面幅が600px以下の場合も左右に50pxずつ余白を保つ */
+  }
+}
+
+/* テキスト入力エリア */
+
+.typing-box {
+  display: flex; /* Flexコンテナとして設定 */
+  align-items: center; /* アイテムを縦方向の中央に配置 */
+}
+#add-photo-button,
+#message,
+#add-message-button {
+  margin: 0 10px; /* 余白を設定 */
+}
+
+#add-photo-button,
+#add-message-button {
+  flex: 0 0 auto; /* ボタンのサイズを内容に合わせて固定 */
+}
+
+#message {
+  flex: 1 1 auto; /* テキストエリアは残りのスペースを埋めるように拡張 */
+  min-width: 0; /* フレキシブルなアイテムが縮小する際に必要な設定 */
+}
+
+#add-message-button {
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+}
+.send-icon {
+  width: 40px; /* 幅を40pxに設定 */
+  height: 40px; /* 高さを40pxに設定 */
+}
+
+#message {
+  border-radius: 16px;
+  background-color: var(--white);
+  border: none;
+  padding: 10px;
+}
+.typing-box-wrapper {
+  background-color: #d9d9d9;
+  padding: 20px;
+}

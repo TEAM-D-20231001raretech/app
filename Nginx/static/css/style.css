@@ -2,7 +2,6 @@
 
 @import "color.css";
 
-
 body {
   font-family: meiryo;
   background-color: var(--lavender);
@@ -41,7 +40,6 @@ form {
   padding-top: 7px;
   font-size: 24px;
 }
-
 input {
   background: var(--pale);
   width: 65%;

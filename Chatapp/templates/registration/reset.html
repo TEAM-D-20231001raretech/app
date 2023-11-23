@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap"
-      rel="stylesheet"
-    />
-    <title>Petalk</title>
-    <link rel="stylesheet" href="static/css/style.css" />
-  </head>
+{% extends 'registration/base.html' %}{% block title %}
+<title>Petalk</title>
+{% endblock title %}{% block body %}
+<h1 class="logo">Petalk</h1>
+<img src="{{ url_for('static',filename='img/Paws.png') }}" alt="" />
 
-  <body>
-    <h1 class="logo">Petalk</h1>
-    <img src="static/img/Paws.png" alt="" />
-    <main>
-      <form>
-        <input type="email" placeholder="メールアドレス" /><br />
-        <input type="password" placeholder="新しいパスワード" /><br />
-        <input type="password" placeholder="確認用パスワード" /><br />
-      </form>
-      <button class="button-submit">再設定</button><br />
-      <p><a href="login.html">ログインページに戻る</a></p>
-    </main>
+<main>
+  <form class="registration-form" method="post">
+    <input type="email" placeholder="メールアドレス" /><br />
+    <input type="password" placeholder="新しいパスワード" /><br />
+    <input type="password" placeholder="確認用パスワード" /><br />
+  </form>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <ul class="flashes">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endwith %}
+  <p><a href="{{ url_for('reset') }}">※パスワードをお忘れの方はこちら</a></p>
+  <button class="button-submit">再設定</button><br />
+  <p><a href="{{ url_for('login') }}">ログインページに戻る</a></p>
+</main>
 
-    <img src="static/img/Paws.png" alt="" />
-  </body>
-</html>
+<img src="{{ url_for('static',filename='img/Paws.png') }}" alt="" />
+{% endblock body %}

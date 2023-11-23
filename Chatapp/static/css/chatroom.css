@@ -1,13 +1,28 @@
-/*registrationのcss*/
-
-@import "color.css";
-
+@import "./color.css";
 
 body {
   font-family: meiryo;
-  background-color: var(--lavender);
+  background-color: var(--pale);
+  color: var(--gray);
   position: relative;
 }
+p {
+  text-align: right;
+}
+.typing-box-wrapper {
+  background-color: #d9d9d9;
+}
+.myname,
+.my-message,
+.my-time {
+  text-align: right;
+}
+.add-message-button {
+  width: 35px;
+  height: 35px;
+  border: none;
+}
+/* 
 img:first-of-type,
 img:last-of-type {
   position: absolute;
@@ -41,7 +56,6 @@ form {
   padding-top: 7px;
   font-size: 24px;
 }
-
 input {
   background: var(--pale);
   width: 65%;
@@ -109,11 +123,4 @@ a:active {
   color: var(--pink);
   text-decoration: underline;
 }
-label {
-  font-family: "Princess Sofia";
-  font-size: 1.3em;
-  color: var(--gray);
-}
-.flashes {
-  color: var(--gray);
-}
+*/
