@@ -16,12 +16,12 @@
   <body>
     <div class="detail">
       <p class="div">{{ channel.name }}</p>
-      <p>{{uid}}</p>
 
-      {% if messages|length > 0 %} {% for message in messages %}
-      <p>{{message.uid}}</p>
-      {% if message.uid == uid %}
-      <div class="my-messages">
+      {% if messages|length > 0 %} {% for message in messages %} {% if
+      message.uid == uid %}
+      <div>
+        <p class="user-name">{{ message.user_name }}</p>
+        <p class="my-message">{{ message.message }}</p>
         <form action="/delete_message" method="POST">
           <input type="hidden" value="{{ channel.id }}" name="cid" />
           <button
@@ -36,17 +36,17 @@
             />
           </button>
         </form>
-        <p class="user-name">{{ message.user_name }}</p>
-        <p class="my-message">{{ message.message }}</p>
+        <span class="my-message-timestamp"
+          >{{ message.created_at.strftime('%H:%M') }}</span
+        >
+      </div>
 
-        {% else %}
+      {% else %}
+      <div>
         <div class="friend-name">{{ message.user_name }}</div>
         <div class="friend-message">{{ message.message }}</div>
-        <div class="friend-image">
-          <img src="../static/img/chatphoto.png" />
-        </div>
-        <div class="time">何時何分</div>
       </div>
+
       {% endif %} {% endfor %} {% else %}
       <div id="no-message"><p>まだメッセージがありません</p></div>
       {% endif %}
@@ -60,7 +60,6 @@
         name="newMessageForm"
       >
         <input type="hidden" name="cid" value="{{channel.id}}" />
-        <button type="add-photo" id="add-photo-button">画像追加</button>
         <textarea name="message" id="message" autofocus></textarea>
         <button type="submit" id="add-message-button">
           <img src="../static/img/icon_send.svg" alt="送信" class="send-icon" />

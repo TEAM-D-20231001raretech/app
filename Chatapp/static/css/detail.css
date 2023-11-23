@@ -10,6 +10,10 @@ body {
 .div {
   text-align: right;
 }
+.detail {
+  height: calc(100vh - 88px);
+  overflow-y: scroll;
+}
 .friend-message {
   display: inline-block;
   position: relative;
@@ -133,4 +137,8 @@ body {
 .typing-box-wrapper {
   background-color: #d9d9d9;
   padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
