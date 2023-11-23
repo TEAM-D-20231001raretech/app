@@ -6,6 +6,7 @@ html {
   height: 100%;
   text-align: center; /* 中央揃え */
   background-color: #eac7cc;
+  color: var(--gray);
 }
 
 header {
@@ -29,6 +30,8 @@ header {
 
 #channelList {
   margin-top: 20px; /* ヘッダーの下にスペースを作る */
+  list-style-type: none;
+  color: var(--gray);
 }
 
 button {
