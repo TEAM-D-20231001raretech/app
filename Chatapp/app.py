@@ -53,13 +53,11 @@ def userSignup():
 def login():
     return render_template('registration/login.html')
 
-
 # ログイン処理
 @app.route('/login', methods=['POST'])
 def userLogin():
     email = request.form.get('email')
     password = request.form.get('password')
-    
     if email =='' or password == '':
         flash('空のフォームがあるようです')
     else:
@@ -155,7 +153,7 @@ def detail(cid):
     cid = cid
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
-    
+    print(messages, channel)
 
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
@@ -195,7 +193,6 @@ def delete_message():
 @app.errorhandler(404)
 def show_error404(error):
     return render_template('error/404.html'),404
-
 
 @app.errorhandler(500)
 def show_error500(error):
