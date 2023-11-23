@@ -104,7 +104,7 @@ class dbConnect:
             cur = conn.cursor()
             sql = "SELECT id,u.uid, user_name, message FROM messages AS m INNER JOIN users AS u ON m.uid = u.uid WHERE cid = %s;"
             cur.execute(sql, (cid))
-            messages = cur.fetchone()
+            messages = cur.fetchall()
             return messages
         except Exception as e:
             print (e + 'が発生しています')

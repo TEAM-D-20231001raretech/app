@@ -38,9 +38,7 @@
         </form>
         <p class="user-name">{{ message.user_name }}</p>
         <p class="my-message">{{ message.message }}</p>
-        <span class="my-message-timestamp"
-          >{{ message.timestamp.strftime('%H:%M') }}</span
-        >
+
         {% else %}
         <div class="friend-name">{{ message.user_name }}</div>
         <div class="friend-message">{{ message.message }}</div>
