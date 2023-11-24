@@ -1,4 +1,7 @@
 /* styles.css */
+
+@import "color.css";
+
 body,
 html {
   margin: 0;
@@ -6,7 +9,7 @@ html {
   height: 100%;
   text-align: center; /* 中央揃え */
   background-color: #eac7cc;
-  color: var(--gray);
+  color: #8e9aaf;
 }
 
 header {
@@ -26,16 +29,76 @@ header {
 
 .title {
   margin: 0;
+  color: #8e9aaf;
 }
 
-#channelList {
+.channelList {
   margin-top: 20px; /* ヘッダーの下にスペースを作る */
   list-style-type: none;
-  color: var(--gray);
+  color: #8e9aaf;
 }
 
-button {
-  margin-top: 20px;
+.channelname {
+  margin: 20px;
+  font-size: 30px;
+}
+
+.paws {
+  height: 40px;
+  width: 40px;
+}
+
+.channeltitle {
+  margin: 20px;
+  font-size: 30px;
+  color: #8e9aaf;
+}
+
+/* 未訪問リンク */
+a:link {
+  color: #8e9aaf;
+}
+
+/* 訪問済みリンク */
+a:visited {
+  color: #8e9aaf;
+}
+
+/* マウスオーバー時のリンク */
+a:hover {
+  color: #ce7d88;
+}
+
+/* 選択中のリンク */
+a:active {
+  color: #8e9aaf;
+}
+
+.submit {
+  width: 200px;
+  padding: 10px;
+  font-family: meiryo;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 24px;
+  border-radius: 12px;
+  margin: auto;
+  outline: none;
+  display: block;
+  background: #f6f6f6;
+  color: #ce7d88;
+  border: solid 4px #ce7d88;
+}
+.submit:hover {
+  background: #ce7d88;
+  color: #f6f6f6;
+  border: solid 4px #ce7d88;
+  transition: background-color 1s ease-out;
+}
+
+.buttonSubmit {
+  padding: 10px 20px;
+  margin-bottom: 10px;
 }
 
 /* ... その他のスタイル ... */
@@ -48,19 +111,38 @@ button {
   margin-right: 10px;
 }
 
-/* 新しいチャンネル項目のスタイル */
-.channel-item {
-  display: flex;
-  align-items: center;
+.loguot {
+  width: 150px;
   padding: 5px;
+  font-family: meiryo;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 15px;
+  border-radius: 12px;
+  margin: auto;
+  outline: none;
+  background: #f6f6f6;
+  color: #ce7d88;
+  border: solid 4px #ce7d88;
+  position: absolute;
+  right: 0;
 }
 
-.channel-icon {
-  margin-right: 10px;
-  /* 他に必要なスタイルがあればここに追加 */
+/* .loguot:hover {
+  background: #ce7d88;
+  color: #8e9aaf;
+  border: solid 4px #ce7d88;
+  transition: background-color 1s ease-out;
+} */
+
+#channelName {
+  width: 200px;
+  height: 40px;
+  border-radius: 12px;
 }
 
-/* 削除ボタンのスタイル */
-.delete-btn {
-  margin-left: auto; /* ボタンを右端に配置 */
+#channelDescription {
+  width: 200px;
+  height: 40px;
+  border-radius: 12px;
 }
