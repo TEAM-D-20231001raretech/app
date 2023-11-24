@@ -28,10 +28,25 @@ header {
   margin: 0;
 }
 
-#channelList {
+.channelList {
   margin-top: 20px; /* ヘッダーの下にスペースを作る */
   list-style-type: none;
   color: var(--gray);
+}
+
+.channelname {
+  margin : 20px;
+  font-size: 30px;
+}
+
+.paws{
+  height: 10px;
+  width: 10px;
+}
+
+.channeltitle{
+  margin: 20px;
+  font-size: 20px;
 }
 
 button {
@@ -46,21 +61,4 @@ button {
 
 .input-group input {
   margin-right: 10px;
-}
-
-/* 新しいチャンネル項目のスタイル */
-.channel-item {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-}
-
-.channel-icon {
-  margin-right: 10px;
-  /* 他に必要なスタイルがあればここに追加 */
-}
-
-/* 削除ボタンのスタイル */
-.delete-btn {
-  margin-left: auto; /* ボタンを右端に配置 */
 }
