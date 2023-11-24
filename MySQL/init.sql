@@ -1,11 +1,11 @@
 
-DROP DATABASE chatapp;
-DROP USER 'testuser';
+DROP DATABASE petalkDB;
+DROP USER 'admin';
 
-CREATE USER 'testuser' IDENTIFIED BY 'testuser';
-CREATE DATABASE chatapp;
-USE chatapp
-GRANT ALL PRIVILEGES ON chatapp.* TO 'testuser';
+CREATE USER 'admin' IDENTIFIED BY 'petalkPasswd';
+CREATE DATABASE petalkDB;
+USE petalkDB
+GRANT ALL PRIVILEGES ON petalkDB.* TO 'admin';
 
 CREATE TABLE users (
     uid varchar(255) PRIMARY KEY,
@@ -31,4 +31,4 @@ CREATE TABLE messages (
 
 INSERT INTO users(uid, user_name, email, password)VALUES('970af84c-dd40-47ff-af23-282b72b7cca8','チワワLOVE','test@gmail.com','37268335dd6931045bdcdf92623ff819a64244b53d0e746d438797349d4da578');
 INSERT INTO channels(id, uid, name, abstract)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8','うちの子が一番！','うちの子自慢をするチャンネルです');
-INSERT INTO messages(id, uid, cid, message)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8', '1', '今日はおめかししてお出かけしました')
+INSERT INTO messages(id, uid, cid, message)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8', 1, '今日はおめかししてお出かけしました');
