@@ -7,11 +7,43 @@ body {
   position: relative;
   margin: 0;
 }
+
+header {
+  display: flex; /* Flexboxを有効化 */
+  justify-content: space-between; /* 子要素を左端、右端に配置 */
+  align-items: center; /* 縦方向の中央揃え */
+  padding: 10px; /* ヘッダーに少し余白を追加 */
+}
+
+.return{
+  text-decoration: none; /
+}
+
+/* 未訪問リンク */
+a:link {
+  color: var(--gray);
+}
+
+/* 訪問済みリンク */
+a:visited {
+  color: var(--gray);
+}
+
+/* マウスオーバー時のリンク */
+a:hover {
+  color: var(--pink);
+}
+
+/* 選択中のリンク */
+a:active {
+  color: var(--gray);
+}
 .div {
   text-align: right;
 }
+
 .detail {
-  height: calc(100vh - 88px);
+  height: calc(100vh - 170px);
   overflow-y: scroll;
 }
 .friend-message {
@@ -34,6 +66,11 @@ body {
   border-right: 18px solid #d9d9d9;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
+}
+.friend-message-timestamp {
+  display: block;
+  font-size: 0.8em;
+  color: var(--gray);
 }
 
 .delete-message-button {

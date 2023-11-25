@@ -14,9 +14,12 @@
   </head>
 
   <body>
-    <div class="detail">
+    <header>
+      <div class="return"><a href="{{ url_for('index') }}">戻る</a></div>
       <p class="div">{{ channel.name }}</p>
+    </header>
 
+    <div class="detail">
       {% if messages|length > 0 %} {% for message in messages %} {% if
       message.uid == uid %}
       <div>
@@ -45,6 +48,9 @@
       <div>
         <div class="friend-name">{{ message.user_name }}</div>
         <div class="friend-message">{{ message.message }}</div>
+        <span class="friend-message-timestamp"
+          >{{ message.created_at.strftime('%H:%M') }}</span
+        >
       </div>
 
       {% endif %} {% endfor %} {% else %}
